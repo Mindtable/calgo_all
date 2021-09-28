@@ -1,31 +1,37 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <map>
 #include <utility>
 #include <algorithm>
+#include <queue>
 
+#define ll long long
 
-std::pair<long long, long long> get_children(long long);
-//qq
+std::pair<ll, ll> get_children(ll);
+
 class BinaryHeap{
 private:
-    std::vector<std::pair<long long, long long>> heap;
-    std::map<std::pair<long long, long long>, long long> indices;
-    long long size;
+    std::vector<std::pair<ll, ll>> heap;
+    std::vector<ll> number_index;
+    ll size;
 public:
     BinaryHeap(){
         size = 0;
+        for (ll i = 0; i < 10000000; i++){
+            number_index.push_back(0);
+            if (i < 1000000 + 7)
+                heap.push_back(std::pair<ll, ll>(0, 0));
+        }
     }
-    void push(long long number, long long value){
+    void push(ll number, ll value){
+        heap[size] = std::pair<ll, ll>(number, value);
+        number_index[number] = size;
         size++;
-        heap.push_back(std::make_pair(number, value));
-        indices[std::make_pair(number, value)] = size - 1;
-        long long i = size - 1;
+        ll i = size - 1;
         while (i > 0 && heap[(i - 1) / 2].second > heap[i].second){
             std::iter_swap(heap.begin() + i, heap.begin() + (i - 1) / 2);
-            indices[heap[(i - 1) / 2]] = (i - 1) / 2;
-            indices[heap[i]] = i;
+            number_index[heap[(i - 1) / 2].first] = (i - 1) / 2;
+            number_index[heap[i].first] = i;
             i = (i - 1) / 2;
         }
     }
@@ -35,15 +41,13 @@ public:
             return;
         }
         std::cout << heap[0].second << '\n';
-        indices.erase(heap[0]);
-        std::iter_swap(heap.begin(), heap.end() - 1);
-        indices[heap[0]] = 0;
-        heap.pop_back();
+        std::iter_swap(heap.begin(), heap.begin() + size - 1);
+        number_index[heap[0].first] = 0;
         size--;
-        long long i = 0;
+        ll i = 0;
         while (1){
-            std::pair<long long, long long> child_ind = get_children(i);
-            long long j = i;
+            std::pair<ll, ll> child_ind = get_children(i);
+            ll j = i;
             if (child_ind.first < size &&
                 heap[child_ind.first].second < heap[j].second){
                 j = child_ind.first;
@@ -57,19 +61,18 @@ public:
                 return;
             }
             std::iter_swap(heap.begin() + i, heap.begin() + j);
-
+            number_index[heap[j].first] = j;
+            number_index[heap[i].first] = i;
         }
 
     }
-    void decrease_key(std::pair<long long, long long> old_value, long long new_value){
-        long long i = indices[old_value];
-        indices.erase(old_value);
-        heap[i] = std::make_pair(old_value.first, new_value);
-        indices[heap[i]] = i;
+    void decrease_key(ll number, ll new_value){
+        ll i = number_index[number];
+        heap[i] = std::make_pair(number, new_value);
         while (i > 0 && heap[(i - 1) / 2].second > heap[i].second){
             std::iter_swap(heap.begin() + i, heap.begin() + (i - 1) / 2);
-            indices[heap[(i - 1) / 2]] = (i - 1) / 2;
-            indices[heap[i]] = i;
+            number_index[heap[(i - 1) / 2].first] = (i - 1) / 2;
+            number_index[heap[i].first] = i;
             i = (i - 1) / 2;
         }
     }
@@ -81,30 +84,32 @@ public:
     }
 
 };
-
+// можно делать общий счетчик строк
+// и счетчик бесполезных
+// когда нам нужно будет поменять элемент из строк n
+// мы просто вычтем из n количество бесполезных операций
+//qq
+//kk
 int main(){
     std::string command;
     BinaryHeap heap;
-    std::map<long long, long long> number_value;
-    long long number = 1;
-    long long value;
+    ll number = 1;
+    ll value;
     freopen("kth.in", "r", stdin);
     freopen("kth.out", "w", stdout);
     while (std::cin >> command){
         if (command == "push"){
             std::cin >> value;
-            number_value[number] = value;
             heap.push(number, value);
         }
         else if (command == "extract-min"){
             heap.extract_min();
         }
         else if (command == "decrease-key"){
-            long long number_to_change;
-            long long new_value;
+            ll number_to_change;
+            ll new_value;
             std::cin >> number_to_change >> new_value;
-            std::pair<long long, long long> argument = {number_to_change, number_value[number_to_change]};
-            heap.decrease_key(argument, new_value);
+            heap.decrease_key(number_to_change, new_value);
         }
         else{
             std::cout << "error";
@@ -112,11 +117,10 @@ int main(){
         }
         number++;
     }
-    heap.print();
     return 0;
 }
 
-std::pair<long long, long long> get_children(long long index){
-    std::pair<long long, long long> result = {2*index + 1, 2*index + 2};
+std::pair<ll, ll> get_children(ll index){
+    std::pair<ll, ll> result = {2*index + 1, 2*index + 2};
     return result;
 }

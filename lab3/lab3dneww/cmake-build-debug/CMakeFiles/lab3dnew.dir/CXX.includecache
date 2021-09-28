@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/my stuff/itmo/algo/lab3/lab3dnew/main.cpp
+iostream
+-
+vector
+-
+string
+-
+utility
+-
+algorithm
+-
+queue
+-
+
