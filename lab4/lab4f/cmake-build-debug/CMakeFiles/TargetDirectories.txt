@@ -1,0 +1,3 @@
+C:/my stuff/itmo/algo/lab4/lab4f/cmake-build-debug/CMakeFiles/lab4f.dir
+C:/my stuff/itmo/algo/lab4/lab4f/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/my stuff/itmo/algo/lab4/lab4f/cmake-build-debug/CMakeFiles/rebuild_cache.dir
