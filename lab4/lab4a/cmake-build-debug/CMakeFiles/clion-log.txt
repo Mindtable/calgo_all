@@ -1,0 +1,1 @@
+CMakeLists.txt not found in C:\my stuff\itmo\algo\lab4\lab4a Select CMakeLists.txt
