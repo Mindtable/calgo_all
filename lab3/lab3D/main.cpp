@@ -48,16 +48,16 @@ public:
                 heap[child_ind.first].second < heap[j].second){
                 j = child_ind.first;
             }
-            if (child_ind.first < size &&
-                heap[child_ind.first].second < heap[j].second){
-                j = child_ind.first;
+            if (child_ind.second < size &&
+                heap[child_ind.second].second < heap[j].second){
+                j = child_ind.second;
             }
 
             if (j == i){
                 return;
             }
             std::iter_swap(heap.begin() + i, heap.begin() + j);
-
+            i = j;
         }
 
     }

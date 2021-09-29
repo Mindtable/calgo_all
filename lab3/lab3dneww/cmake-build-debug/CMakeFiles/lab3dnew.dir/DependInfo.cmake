@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/my stuff/itmo/algo/lab3/lab3dnew/main.cpp" "C:/my stuff/itmo/algo/lab3/lab3dnew/cmake-build-debug/CMakeFiles/lab3dnew.dir/main.cpp.obj"
+  "C:/my stuff/itmo/algo/lab3/lab3dneww/main.cpp" "C:/my stuff/itmo/algo/lab3/lab3dneww/cmake-build-debug/CMakeFiles/lab3dnew.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 

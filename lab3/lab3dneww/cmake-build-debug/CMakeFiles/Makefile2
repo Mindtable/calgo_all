@@ -43,10 +43,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\my stuff\itmo\algo\lab3\lab3dnew"
+CMAKE_SOURCE_DIR = "C:\my stuff\itmo\algo\lab3\lab3dneww"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\my stuff\itmo\algo\lab3\lab3dnew\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\my stuff\itmo\algo\lab3\lab3dneww\cmake-build-debug"
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -70,14 +70,14 @@ clean: CMakeFiles\lab3dnew.dir\clean
 CMakeFiles\lab3dnew.dir\all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab3dnew.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\lab3dnew.dir\depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab3dnew.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\lab3dnew.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\my stuff\itmo\algo\lab3\lab3dnew\cmake-build-debug\CMakeFiles" --progress-num=1,2 "Built target lab3dnew"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\my stuff\itmo\algo\lab3\lab3dneww\cmake-build-debug\CMakeFiles" --progress-num=1,2 "Built target lab3dnew"
 .PHONY : CMakeFiles\lab3dnew.dir\all
 
 # Build rule for subdir invocation for target.
 CMakeFiles\lab3dnew.dir\rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\my stuff\itmo\algo\lab3\lab3dnew\cmake-build-debug\CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\my stuff\itmo\algo\lab3\lab3dneww\cmake-build-debug\CMakeFiles" 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\lab3dnew.dir\all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\my stuff\itmo\algo\lab3\lab3dnew\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\my stuff\itmo\algo\lab3\lab3dneww\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles\lab3dnew.dir\rule
 
 # Convenience name for target.

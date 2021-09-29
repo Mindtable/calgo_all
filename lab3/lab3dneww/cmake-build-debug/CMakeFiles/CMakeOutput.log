@@ -21,7 +21,7 @@ Compilation of the C compiler identification source "CMakeCCompilerId.c" produce
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
 
-The C compiler identification is MSVC, found in "C:/my stuff/itmo/algo/lab3/lab3dnew/cmake-build-debug/CMakeFiles/3.20.2/CompilerIdC/CMakeCCompilerId.exe"
+The C compiler identification is MSVC, found in "C:/my stuff/itmo/algo/lab3/lab3dneww/cmake-build-debug/CMakeFiles/3.20.2/CompilerIdC/CMakeCCompilerId.exe"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx86/x86/cl.exe 
@@ -45,27 +45,27 @@ Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" p
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
 
-The CXX compiler identification is MSVC, found in "C:/my stuff/itmo/algo/lab3/lab3dnew/cmake-build-debug/CMakeFiles/3.20.2/CompilerIdCXX/CMakeCXXCompilerId.exe"
+The CXX compiler identification is MSVC, found in "C:/my stuff/itmo/algo/lab3/lab3dneww/cmake-build-debug/CMakeFiles/3.20.2/CompilerIdCXX/CMakeCXXCompilerId.exe"
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/my stuff/itmo/algo/lab3/lab3dnew/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: C:/my stuff/itmo/algo/lab3/lab3dneww/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):nmake -f Makefile /nologo cmTC_92a4f\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_92a4f.dir\build.make /nologo -L                  CMakeFiles\cmTC_92a4f.dir\build
-Building C object CMakeFiles/cmTC_92a4f.dir/CMakeCCompilerABI.c.obj
-	"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_92a4f.dir\CMakeCCompilerABI.c.obj.d --working-dir="C:\my stuff\itmo\algo\lab3\lab3dnew\cmake-build-debug\CMakeFiles\CMakeTmp" --filter-prefix="" -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1428~1.293\bin\Hostx86\x86\cl.exe @C:\Users\MTBLE\AppData\Local\Temp\nmD1C9.tmp
-Linking C executable cmTC_92a4f.exe
-	"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_92a4f.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1428~1.293\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_92a4f.dir\objects1.rsp @C:\Users\MTBLE\AppData\Local\Temp\nmD37F.tmp
+Run Build Command(s):nmake -f Makefile /nologo cmTC_b02f8\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_b02f8.dir\build.make /nologo -L                  CMakeFiles\cmTC_b02f8.dir\build
+Building C object CMakeFiles/cmTC_b02f8.dir/CMakeCCompilerABI.c.obj
+	"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_b02f8.dir\CMakeCCompilerABI.c.obj.d --working-dir="C:\my stuff\itmo\algo\lab3\lab3dneww\cmake-build-debug\CMakeFiles\CMakeTmp" --filter-prefix="" -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1428~1.293\bin\Hostx86\x86\cl.exe @C:\Users\MTBLE\AppData\Local\Temp\nmA5E.tmp
+Linking C executable cmTC_b02f8.exe
+	"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_b02f8.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1428~1.293\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_b02f8.dir\objects1.rsp @C:\Users\MTBLE\AppData\Local\Temp\nmB39.tmp
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: C:/my stuff/itmo/algo/lab3/lab3dnew/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: C:/my stuff/itmo/algo/lab3/lab3dneww/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):nmake -f Makefile /nologo cmTC_ef425\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_ef425.dir\build.make /nologo -L                  CMakeFiles\cmTC_ef425.dir\build
-Building CXX object CMakeFiles/cmTC_ef425.dir/CMakeCXXCompilerABI.cpp.obj
-	"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_ef425.dir\CMakeCXXCompilerABI.cpp.obj.d --working-dir="C:\my stuff\itmo\algo\lab3\lab3dnew\cmake-build-debug\CMakeFiles\CMakeTmp" --filter-prefix="" -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1428~1.293\bin\Hostx86\x86\cl.exe @C:\Users\MTBLE\AppData\Local\Temp\nmD69B.tmp
-Linking CXX executable cmTC_ef425.exe
-	"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_ef425.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1428~1.293\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_ef425.dir\objects1.rsp @C:\Users\MTBLE\AppData\Local\Temp\nmD729.tmp
+Run Build Command(s):nmake -f Makefile /nologo cmTC_ed6be\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_ed6be.dir\build.make /nologo -L                  CMakeFiles\cmTC_ed6be.dir\build
+Building CXX object CMakeFiles/cmTC_ed6be.dir/CMakeCXXCompilerABI.cpp.obj
+	"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_ed6be.dir\CMakeCXXCompilerABI.cpp.obj.d --working-dir="C:\my stuff\itmo\algo\lab3\lab3dneww\cmake-build-debug\CMakeFiles\CMakeTmp" --filter-prefix="" -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1428~1.293\bin\Hostx86\x86\cl.exe @C:\Users\MTBLE\AppData\Local\Temp\nm12CA.tmp
+Linking CXX executable cmTC_ed6be.exe
+	"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_ed6be.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1428~1.293\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_ed6be.dir\objects1.rsp @C:\Users\MTBLE\AppData\Local\Temp\nm1432.tmp
 
 
 

@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "C:/my stuff/itmo/algo/lab3/lab3b/cmake-build-debug/CMakeFiles/lab3b.dir/embed.manifest"
