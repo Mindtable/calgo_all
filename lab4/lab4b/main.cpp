@@ -11,9 +11,7 @@ private:
     const ll maxsize = 10000000;
 public:
     queue(){
-        for (ll j = 0; j < maxsize; j++){
-            data.push_back(-1);
-        }
+        data = data = std::vector<ll>(maxsize);
         front = 0;
         back = 0;
     }

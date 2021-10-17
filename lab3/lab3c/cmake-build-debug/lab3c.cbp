@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/my stuff/Python Files/itmo/lab3c/cmake-build-debug"/>
+				<Option working_dir="C:/my stuff/itmo/algo/lab3/lab3c/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 all"/>
-					<CompileFile command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="lab3c">
-				<Option output="C:/my stuff/Python Files/itmo/lab3c/cmake-build-debug/lab3c.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/my stuff/Python Files/itmo/lab3c/cmake-build-debug"/>
+				<Option output="C:/my stuff/itmo/algo/lab3/lab3c/cmake-build-debug/lab3c.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/my stuff/itmo/algo/lab3/lab3c/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
@@ -33,15 +33,15 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 lab3c"/>
-					<CompileFile command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 lab3c"/>
+					<CompileFile command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="lab3c/fast">
-				<Option output="C:/my stuff/Python Files/itmo/lab3c/cmake-build-debug/lab3c.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/my stuff/Python Files/itmo/lab3c/cmake-build-debug"/>
+				<Option output="C:/my stuff/itmo/algo/lab3/lab3c/cmake-build-debug/lab3c.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/my stuff/itmo/algo/lab3/lab3c/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
@@ -55,37 +55,37 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 lab3c/fast"/>
-					<CompileFile command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 lab3c/fast"/>
+					<CompileFile command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/my stuff/Python Files/itmo/lab3c/cmake-build-debug"/>
+				<Option working_dir="C:/my stuff/itmo/algo/lab3/lab3c/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 edit_cache"/>
-					<CompileFile command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/my stuff/Python Files/itmo/lab3c/cmake-build-debug"/>
+				<Option working_dir="C:/my stuff/itmo/algo/lab3/lab3c/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f &quot;C:\my stuff\Python Files\itmo\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f &quot;C:\my stuff\itmo\algo\lab3\lab3c\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/my stuff/Python Files/itmo/lab3c/main.cpp">
+		<Unit filename="C:/my stuff/itmo/algo/lab3/lab3c/main.cpp">
 			<Option target="lab3c"/>
 		</Unit>
-		<Unit filename="C:/my stuff/Python Files/itmo/lab3c/CMakeLists.txt">
+		<Unit filename="C:/my stuff/itmo/algo/lab3/lab3c/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

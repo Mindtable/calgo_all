@@ -68,6 +68,8 @@ public:
 };
 
 int main() {
+    freopen("sort.in", "r", stdin);
+    freopen("sort.out", "w", stdout);
     BinaryHeap heap;
     ll n;
     std::cin >> n;

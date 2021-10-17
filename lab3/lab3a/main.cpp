@@ -2,6 +2,8 @@
 #include <vector>
 
 int main() {
+    freopen("isheap.in", "r", stdin);
+    freopen("isheap.out", "w", stdout);
     long long n;
     std::cin >> n;
 

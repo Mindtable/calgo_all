@@ -4,11 +4,8 @@
 
 #define ll long long
 int main() {
-    std::vector<ll> stack;
+    std::vector<ll> stack(1007, -1);
     ll stack_size = 0;
-    for (ll j = 0; j < 1007; j++){
-        stack.push_back(-1);
-    }
     freopen("postfix.in", "r", stdin);
     freopen("postfix.out", "w", stdout);
     std::string input;

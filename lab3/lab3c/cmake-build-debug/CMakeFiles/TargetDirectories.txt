@@ -1,3 +1,3 @@
-C:/my stuff/Python Files/itmo/lab3c/cmake-build-debug/CMakeFiles/lab3c.dir
-C:/my stuff/Python Files/itmo/lab3c/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/my stuff/Python Files/itmo/lab3c/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/my stuff/itmo/algo/lab3/lab3c/cmake-build-debug/CMakeFiles/lab3c.dir
+C:/my stuff/itmo/algo/lab3/lab3c/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/my stuff/itmo/algo/lab3/lab3c/cmake-build-debug/CMakeFiles/rebuild_cache.dir

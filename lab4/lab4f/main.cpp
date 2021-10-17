@@ -12,12 +12,10 @@ int main() {
     const ld eps = 0.00000000001;
     ll n;
     ld A;
-    std::vector<ld> garland;
     std::cin >> n >> A;
+    std::vector<ld> garland(n);
     garland.push_back(A);
-    for (ll j = 1; j < n; j++){
-        garland.push_back(0.0);
-    }
+    garland[0] = A;
     ld left_bound = 0;
     ld right_bound = 1000000;
     ld min_ex = A;

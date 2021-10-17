@@ -5,7 +5,8 @@
 #define ll long long
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    freopen("radixsort.in", "r", stdin);
+    freopen("radixsort.out", "w", stdout);
     ll n, m, k;
     std::cin >> n >> m >> k;
     std::vector<std::string> data;
