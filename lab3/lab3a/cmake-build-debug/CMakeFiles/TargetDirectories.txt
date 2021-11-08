@@ -1,3 +1,4 @@
 C:/my stuff/itmo/algo/lab3/lab3a/cmake-build-debug/CMakeFiles/lab3a.dir
-C:/my stuff/itmo/algo/lab3/lab3a/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/my stuff/itmo/algo/lab3/lab3a/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/my stuff/itmo/algo/lab3/lab3a/cmake-build-debug/CMakeFiles/lab3b.dir
+C:/my stuff/itmo/algo/lab3/lab3a/cmake-build-debug/CMakeFiles/edit_cache.dir

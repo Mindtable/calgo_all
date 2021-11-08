@@ -4,11 +4,16 @@
 #define ld long double
 #define ll long long
 
-ld get_next(ld h_i, ld h_i_1){
-    return 2*h_i - h_i_1 + 1;
+ld get_next(ld h_i, ld h_i_1) {
+    return 2 * h_i - h_i_1 + 1;
 }
 
 int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(NULL);
+    freopen("garland.in", "r", stdin);
+    freopen("garland.out", "w", stdout);
+
     const ld eps = 0.00000000001;
     ll n;
     ld A;
@@ -19,26 +24,25 @@ int main() {
     ld left_bound = 0;
     ld right_bound = 1000000;
     ld min_ex = A;
-    while (right_bound - left_bound >= eps){
+    while (right_bound - left_bound >= eps) {
         ld middle = (right_bound + left_bound) / 2;
 //        std::cout << middle << std::endl;
         garland[1] = middle;
         ll count_zero = 0;
         ll count_neg = 0;
-        for (ll j = 2; j < n; j++){
-            garland[j] = 2*garland[j - 1] - garland[j - 2] + 2;
+        for (ll j = 2; j < n; j++) {
+            garland[j] = 2 * garland[j - 1] - garland[j - 2] + 2;
             // potential bug
-            if (garland[j] == 0){
+            if (garland[j] == 0) {
                 count_zero++;
             }
             if (garland[j] < 0) {
                 count_neg++;
             }
         }
-        if (count_neg > 0 || count_zero > 1){
+        if (count_neg > 0 || count_zero > 1) {
             left_bound = middle;
-        }
-        else { //(count_zero <= 1)
+        } else { //(count_zero <= 1)
             min_ex = garland[n - 1];
             right_bound = middle;
         }

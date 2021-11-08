@@ -3,28 +3,29 @@
 
 #define ll long long
 
-class queue{
+class queue {
 private:
     std::vector<ll> data;
     ll front;
     ll back;
     const ll maxsize = 10000000;
 public:
-    queue(){
+    queue() {
         data = data = std::vector<ll>(maxsize);
         front = 0;
         back = 0;
     }
-    bool empty(){
+
+    bool empty() {
         return front == back;
     }
 
-    void push(ll value){
+    void push(ll value) {
         data[back] = value;
         back = (back + 1) % maxsize;
     }
 
-    ll pop(){
+    ll pop() {
         ll result = data[front];
         front = (front + 1) % maxsize;
         return result;
@@ -34,23 +35,23 @@ public:
 int main() {
     ll count_of_req;
     queue test_queue;
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(NULL);
     freopen("queue.in", "r", stdin);
+    freopen("queue.out", "w", stdout);
     std::cin >> count_of_req;
 
 
-
-    for (ll j = 0; j < count_of_req; j++){
+    for (ll j = 0; j < count_of_req; j++) {
         char value;
         std::cin >> value;
-        if (value == '+'){
+        if (value == '+') {
             ll value_l;
             std::cin >> value_l;
             test_queue.push(value_l);
-        }
-        else if (value == '-'){
+        } else if (value == '-') {
             std::cout << test_queue.pop() << '\n';
-        }
-        else {
+        } else {
             std::cout << "error";
             return 1;
         }

@@ -11,10 +11,10 @@ private:
     std::vector<ll> data;
     ll front;
     ll back;
-    const ll maxsize = 10000000;
+    const ll MAXSIZE = 10000000;
 public:
     queue() {
-        data = data = std::vector<ll>(maxsize);
+        data = data = std::vector<ll>(MAXSIZE);
         front = 0;
         back = 0;
     }
@@ -25,12 +25,12 @@ public:
 
     void push(ll value) {
         data[back] = value;
-        back = (back + 1) % maxsize;
+        back = (back + 1) % MAXSIZE;
     }
 
     ll pop() {
         ll result = data[front];
-        front = (front + 1) % maxsize;
+        front = (front + 1) % MAXSIZE;
         return result;
     }
 };
@@ -61,23 +61,31 @@ int main() {
         } else if (first_symbol == '+') {
             ll x = queue.pop();
             ll y = queue.pop();
-            queue.push((x + y) % MOD);
+            queue.push((x + y) & (MOD - 1));
         } else if (first_symbol == '-') {
             ll x = queue.pop();
             ll y = queue.pop();
-            queue.push((x - y) % MOD);
+            queue.push((x - y) & (MOD - 1));
         } else if (first_symbol == '*') {
             ll x = queue.pop();
             ll y = queue.pop();
-            queue.push((x * y) % MOD);
+            queue.push((x * y) & (MOD - 1));
         } else if (first_symbol == '/') {
             ll x = queue.pop();
             ll y = queue.pop();
-            queue.push(x / y);
+            if (y == 0) {
+                queue.push(0);
+            } else {
+                queue.push(x / y);
+            }
         } else if (first_symbol == '%') {
             ll x = queue.pop();
             ll y = queue.pop();
-            queue.push(x % y);
+            if (y == 0) {
+                queue.push(0);
+            } else {
+                queue.push(x % y);
+            }
         } else if (first_symbol == '>') {
             char register_name = program[i][1] - 'a';
             ll x = queue.pop();

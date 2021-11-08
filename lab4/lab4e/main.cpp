@@ -4,10 +4,15 @@
 #define ll long long
 
 int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(NULL);
+    freopen("binsearch.in", "r", stdin);
+    freopen("binsearch.out", "w", stdout);
+
     ll n;
     std::cin >> n;
     std::vector<ll> data;
-    for (ll j = 0; j < n; j++){
+    for (ll j = 0; j < n; j++) {
         ll value;
         std::cin >> value;
         data.push_back(value);
@@ -38,10 +43,9 @@ int main() {
                 right = middle;
             }
         }
-        if (right_prev > left){
+        if (right_prev > left) {
             std::cout << "-1 -1\n";
-        }
-        else {
+        } else {
             std::cout << right_prev + 1 << " " << left + 1 << " \n";
         }
     }

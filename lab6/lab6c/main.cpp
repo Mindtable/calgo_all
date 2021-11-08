@@ -1,148 +1,143 @@
 #include <iostream>
 #include <string>
 
-long long count = -1;
-
 class Node {
 public:
+    long long key;
     Node *left;
     Node *right;
-    long long value;
 
-    Node(long long val) {
+    Node(long long value) {
+        key = value;
         left = nullptr;
         right = nullptr;
-        value = val;
     }
 };
 
-Node *add(Node *v, long long key) {
-    if (v == nullptr) {
-        return new Node(key);
+Node *search(Node *root, long long value) {
+    if (root == nullptr || value == root->key) {
+        return root;
     }
-    if (v->value > key) {
-        v->left = add(v->left, key);
-    } else {
-        v->right = add(v->right, key);
+
+    if (value < root->key) {
+        return search(root->left, value);
     }
-    return v;
+    return search(root->right, value);
 }
 
-Node *del(Node *root, long long key) {
-    if (root->value > key) {
-        root->left = del(root->left, key);
-        return root;
+Node *insert(Node *root, long long value) {
+    if (root == nullptr) {
+        return new Node(value);
     }
-    if (root->value < key) {
-        root->right = del(root->right, key);
-        return root;
+    if (value < root->key) {
+        root->left = insert(root->left, value);
+    } else if (value > root->key) {
+        root->right = insert(root->right, value);
     }
-    if (root->right == nullptr && root->left == nullptr) {
-        return nullptr;
-    }
-    if (root->right == nullptr) {
-        return root->left;
-    }
-    if (root->left == nullptr) {
-        return root->right;
-    }
-    Node *cur = root->right;
-    while (cur->left != nullptr) {
-        cur = cur->left;
-    }
-    root->value = cur->value;
-    root->right = del(root->right, root->value);
     return root;
 }
 
-void print_tree(Node *root) {
-    count++;
+Node *minimum(Node *root) {
+    if (root->left == nullptr) {
+        return root;
+    }
+    return minimum(root->left);
+}
+
+Node *maximum(Node *root) {
+    if (root->right == nullptr) {
+        return root;
+    }
+    return maximum(root->right);
+}
+
+Node *next(Node *root, long long value) {
+    Node *current = root;
+    Node *successor = nullptr;
+    while (current != nullptr) {
+        if (current->key > value) {
+            successor = current;
+            current = current->left;
+        } else {
+            current = current->right;
+        }
+    }
+    return successor;
+}
+
+Node *prev(Node *root, long long value) {
+    Node *current = root;
+    Node *successor = nullptr;
+    while (current != nullptr) {
+        if (current->key < value) {
+            successor = current;
+            current = current->right;
+        } else {
+            current = current->left;
+        }
+    }
+    return successor;
+}
+
+Node *delete_key(Node *root, long long value) {
     if (root == nullptr) {
-        std::cout << " none ";
-        count--;
-        return;
+        return root;
     }
-    std::cout << root->value << "\n" << std::string(count, ' ') << "left_br:";
-    print_tree(root->left);
-    if (count > 0) {
-        std::cout << "\n" << std::string(count - 1, ' ') << "right_br:";
+
+    if (value < root->key) {
+        root->left = delete_key(root->left, value);
+    } else if (value > root->key) {
+        root->right = delete_key(root->right, value);
+    } else if (root->left != nullptr && root->right != nullptr) {
+        root->key = minimum(root->right)->key;
+        root->right = delete_key(root->right, root->key);
     } else {
-        std::cout << "\n" << std::string(count, ' ') << "right_br:";
+        if (root->left != nullptr) {
+            root = root->left;
+        } else if (root->right != nullptr) {
+            root = root->right;
+        } else {
+            root = nullptr;
+        }
     }
-    print_tree(root->right);
-    count--;
+    return root;
 }
 
 int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(NULL);
     freopen("bstsimple.in", "r", stdin);
-
+    freopen("bstsimple.out", "w", stdout);
     Node *root = nullptr;
     std::string input;
     while (std::cin >> input) {
+        long long value;
+        std::cin >> value;
         if (input == "insert") {
-            long long input_value;
-            std::cin >> input_value;
-            if (root == nullptr) {
-                root = new Node(input_value);
-            } else {
-                root = add(root, input_value);
-            }
+            root = insert(root, value);
         } else if (input == "delete") {
-            long long input_value;
-            std::cin >> input_value;
-            root = del(root, input_value);
+            root = delete_key(root, value);
         } else if (input == "next") {
-            long long input_value;
-            std::cin >> input_value;
-            Node *cur = root;
-            long long value = root->value;
-            while (cur != nullptr) {
-                if (cur->value > input_value) {
-                    value = cur->value;
-                    cur = cur->left;
-                } else {
-                    cur = cur->right;
-                }
-            }
-            if (value > input_value) {
-                std::cout << value << "\n";
-            } else {
+            Node *nxt = next(root, value);
+            if (nxt == nullptr) {
                 std::cout << "none\n";
+            } else {
+                std::cout << nxt->key << "\n";
             }
         } else if (input == "prev") {
-            long long input_value;
-            std::cin >> input_value;
-            Node *cur = root;
-            long long value = root->value;
-            while (cur != nullptr) {
-                if (cur->value < input_value) {
-                    value = cur->value;
-                    cur = cur->right;
-                } else {
-                    cur = cur->left;
-                }
-            }
-            if (value < input_value) {
-                std::cout << value << "\n";
-            } else {
+            Node *prv = prev(root, value);
+            if (prv == nullptr) {
                 std::cout << "none\n";
+            } else {
+                std::cout << prv->key << "\n";
             }
         } else if (input == "exists") {
-            long long input_value;
-            std::cin >> input_value;
-            Node* cur = root;
-            std::string value = "false\n";
-            while (cur != nullptr) {
-                if (cur->value == input_value) {
-                    value = "true\n";
-                    cur = nullptr;
-                } else if (cur->value > input_value) {
-                    cur = cur->left;
-                } else {
-                    cur = cur->right;
-                }
+            Node *elem = search(root, value);
+            if (elem == nullptr) {
+                std::cout << "false\n";
+            } else {
+                std::cout << "true\n";
             }
-            std::cout << value;
         }
     }
     return 0;
