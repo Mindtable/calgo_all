@@ -30,7 +30,7 @@ private:
     const long long MOD = 1e7 + 19;
     ListElement NONE = ListElement("", "", nullptr);
 
-    std::vector<std::vector<ListElement>> data;
+    std::vector <std::vector<ListElement>> data;
 
     [[nodiscard]] long long get_hash(const std::string &key) const {
         long long result = 0;
@@ -45,7 +45,7 @@ public:
     ListElement *last = nullptr;
 
     Map() {
-        data = std::vector<std::vector<ListElement>>(MOD);
+        data = std::vector < std::vector < ListElement >> (MOD);
     }
 
     std::string get(const std::string &key) {
@@ -143,11 +143,13 @@ public:
     }
 };
 
+using chain_of_vector = std::vector <std::vector<std::pair < std::string, Map>>>;
+
 class MultiMap {
 private:
     const long long A = 41;
     const long long MOD = 1e5 + 3;
-    std::vector<std::vector<std::pair<std::string, Map>>> data;
+    chain_of_vector data;
 
     [[nodiscard]] long long get_hash(const std::string &key) const {
         long long result = 0;
@@ -159,12 +161,12 @@ private:
 
 public:
     MultiMap() {
-        data = std::vector<std::vector<std::pair<std::string, Map>>>(MOD);
+        data = std::vector < std::vector < std::pair < std::string, Map>>>(MOD);
     }
 
     void get(const std::string &key) {
         long long hash = get_hash(key);
-        for (std::pair<std::string, Map> &i: data[hash]) {
+        for (std::pair <std::string, Map> &i: data[hash]) {
             if (i.first == key) {
                 i.second.print();
                 return;
@@ -175,7 +177,7 @@ public:
 
     void delete_key(const std::string &key, const std::string &value) {
         long long hash = get_hash(key);
-        for (std::pair<std::string, Map> &i: data[hash]) {
+        for (std::pair <std::string, Map> &i: data[hash]) {
             if (i.first == key) {
                 i.second.delete_key(value);
                 return;
@@ -185,7 +187,7 @@ public:
 
     void delete_all(const std::string &key) {
         long long hash = get_hash(key);
-        for (std::pair<std::string, Map> &i: data[hash]) {
+        for (std::pair <std::string, Map> &i: data[hash]) {
             if (i.first == key) {
                 i.second.first = nullptr;
                 i.second.last = nullptr;
@@ -196,7 +198,7 @@ public:
 
     void put(const std::string &key, const std::string &value) {
         long long hash = get_hash(key);
-        for (std::pair<std::string, Map> &i: data[hash]) {
+        for (std::pair <std::string, Map> &i: data[hash]) {
             if (i.first == key) {
                 i.second.put(value, value);
                 return;
@@ -208,7 +210,7 @@ public:
 };
 
 int main() {
-    std::vector<std::vector<std::pair<long long, long long>>> test(10);
+    std::vector < std::vector < std::pair < long long, long long>>> test(10);
 
     std::ios_base::sync_with_stdio(false);
     std::cin.tie(NULL);

@@ -44,13 +44,6 @@ Node *minimum(Node *root) {
     return minimum(root->left);
 }
 
-Node *maximum(Node *root) {
-    if (root->right == nullptr) {
-        return root;
-    }
-    return maximum(root->right);
-}
-
 Node *next(Node *root, long long value) {
     Node *current = root;
     Node *successor = nullptr;
