@@ -1,8 +1,12 @@
-#include <iostream>
-#include <gtest/gtest.h>
-#include <gmock/gmock-actions.h>
+//
+// Created by MTBLE on 25.11.2021.
+//
 
-class BinarySearchTree {
+#ifndef QQ_AVLTREE_H
+#define QQ_AVLTREE_H
+
+
+class AVLTree {
 private:
     class Node {
     public:
@@ -207,7 +211,7 @@ private:
     }
 
 public:
-    BinarySearchTree() {
+    AVLTree() {
         root = nullptr;
     }
 
@@ -228,22 +232,20 @@ public:
         return get_balance(root);
     }
 
-    void prev(long long value) {
+    std::string prev(long long value) {
         Node *prev = predecessor(root, value);
         if (prev == nullptr) {
-            std::cout << "none\n";
-        } else {
-            std::cout << prev->value << "\n";
+            return "none";
         }
+        return std::to_string(prev->value);
     }
 
-    void next(long long value) {
+    std::string next(long long value) {
         Node *nxt = successor(root, value);
         if (nxt == nullptr) {
-            std::cout << "none\n";
-        } else {
-            std::cout << nxt->value << "\n";
+            return "none";
         }
+        return std::to_string(nxt->value);
     }
 
     void preorder_traversal() {
@@ -253,9 +255,5 @@ public:
     }
 };
 
-int main(int argc, char *argv[]) {
-    testing::InitGoogleTest(&argc, argv);
-    RUN_ALL_TESTS();
-    return 0;
-}
 
+#endif //QQ_AVLTREE_H
