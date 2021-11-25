@@ -2,7 +2,6 @@
 #include <utility>
 #include <vector>
 #include <algorithm>
-#include <time.h>
 
 class ListElement {
 public:
@@ -12,163 +11,143 @@ public:
     ListElement *nxt;
 
     ListElement(std::string label, std::string val, ListElement *previous) {
-        key = std::move(label);
-        value = std::move(val);
+        key = label;
+        value = val;
         prev = previous;
         nxt = nullptr;
     }
-
-    bool operator==(ListElement &elem) const {
-        return this->key == elem.key && this->value == elem.value &&
-               this->prev == elem.prev && this->nxt == elem.nxt;
-    }
 };
+
+
 
 class Map {
 private:
-    const long long A = 37;
-    const long long MOD = 1e7 + 19;
+    int size = 0;
+    int A = 7;
+    int MOD = 317;
     ListElement NONE = ListElement("", "", nullptr);
+    std::vector<std::vector<ListElement>> data;
 
-    std::vector <std::vector<ListElement>> data;
-
-    [[nodiscard]] long long get_hash(const std::string &key) const {
-        long long result = 0;
-        for (char i: key) {
+    [[nodiscard]] int get_hash(const std::string &key) const {
+        int result = 0;
+        for (int j = 0; j < key.length(); j++) {
+            int i = key[j];
             result = (result * A + i) % MOD;
         }
         return result;
     }
 
 public:
-    ListElement *first = nullptr;
-    ListElement *last = nullptr;
-
     Map() {
-        data = std::vector < std::vector < ListElement >> (MOD);
+        data = std::vector<std::vector<ListElement>>(MOD);
     }
+    ListElement *prev = nullptr;
 
-    std::string get(const std::string &key) {
-        long long hash = get_hash(key);
-        for (const ListElement &i: data[hash]) {
-            if (i.key == key) {
-                return i.value;
-            }
+    void print_all() const {
+        std::cout << size << " ";
+        ListElement *cur = prev;
+        while (cur != nullptr) {
+            std::cout << cur->value << " ";
+            cur = cur->prev;
         }
-        return "none";
+        std::cout << "\n";
     }
 
-    std::string next(const std::string &key) {
-        long long hash = get_hash(key);
-        for (const ListElement &i: data[hash]) {
-            if (i.key == key) {
-                if (i.nxt == nullptr) {
-                    return "none";
-                }
-                return (i.nxt)->value;
-            }
+    void delete_all() {
+        size = 0;
+        for (long long i = 0; i < MOD; i++) {
+            data[i].clear();
         }
-        return "none";
+        prev = nullptr;
     }
 
-    std::string previous(const std::string &key) {
-        long long hash = get_hash(key);
-        for (const ListElement &i: data[hash]) {
-            if (i.key == key) {
-                if (i.prev == nullptr) {
-                    return "none";
-                }
-                return (i.prev)->value;
-            }
-        }
-        return "none";
-    }
-
-    void delete_key(std::string key) {
-        long long hash = get_hash(key);
-        for (ListElement &i: data[hash]) {
+    //FIXME
+    void delete_key(const std::string& key) {
+        int hash = get_hash(key);
+        for (int j = 0; j < data[hash].size(); j++) {
+            ListElement &i = data[hash][j];
             if (i.key == key) {
                 if (i.prev != nullptr) {
                     (i.prev)->nxt = i.nxt;
-                } else {
-                    first = i.nxt;
                 }
                 if (i.nxt != nullptr) {
                     (i.nxt)->prev = i.prev;
                 } else {
-                    last = i.prev;
+                    prev = i.prev;
                 }
                 i = NONE;
-                return;
+                size--;
             }
         }
     }
 
     void put(std::string key, std::string value) {
-        long long hash = get_hash(key);
+        int hash = get_hash(key);
         for (ListElement &i: data[hash]) {
-            if (i == NONE) {
-                i = ListElement(key, value, last);
-                last->nxt = &i;
-                last = last->nxt;
+            if (i.key == key) {
+                i.value = value;
                 return;
             }
         }
-        data[hash].push_back(ListElement(key, value, last));
-        if (last != nullptr) {
-            last->nxt = &data[hash][data[hash].size() - 1];
-            last = last->nxt;
-        } else {
-            last = &data[hash][data[hash].size() - 1];
+        data[hash].push_back(ListElement(key, value, prev));
+        if (prev != nullptr) {
+            prev->nxt = &data[hash][data[hash].size() - 1];
         }
-        if (first == nullptr) {
-            first = &data[hash][data[hash].size() - 1];
-        }
-    }
-
-    void print() {
-        ListElement *cur = first;
-        long long count = 0;
-        while (cur != nullptr) {
-            count += 1;
-            cur = cur->nxt;
-        }
-        std::cout << count;
-        cur = first;
-        while (cur != nullptr) {
-            std::cout << " " << cur->value;
-            cur = cur->nxt;
-        }
-        std::cout << "\n";
+        prev = &data[hash][data[hash].size() - 1];
+        size++;
     }
 };
 
-using chain_of_vector = std::vector <std::vector<std::pair < std::string, Map>>>;
+class MapElement {
+public:
+    Map set;
+    std::string key;
+
+    MapElement(std::string key) {
+        this->set = Map();
+        this->key = key;
+    }
+};
 
 class MultiMap {
-private:
-    const long long A = 41;
-    const long long MOD = 1e5 + 3;
-    chain_of_vector data;
+public:
+    const int A = 7;
+    const int MOD = 317;
+    ListElement NONE = ListElement("", "", nullptr);
+    std::vector<std::vector<MapElement>> data;
 
-    [[nodiscard]] long long get_hash(const std::string &key) const {
-        long long result = 0;
-        for (char i: key) {
+    MultiMap() {
+        data = std::vector<std::vector<MapElement>>(MOD);
+    }
+
+    [[nodiscard]] int get_hash(const std::string &key) const {
+        int result = 0;
+        for (int j = 0; j < key.length(); j++) {
+            int i = key[j];
             result = (result * A + i) % MOD;
         }
         return result;
     }
 
-public:
-    MultiMap() {
-        data = std::vector < std::vector < std::pair < std::string, Map>>>(MOD);
+    void put (const std::string &key, const std::string &value) {
+        long long hash = get_hash(key);
+        for (long long i = 0; i < data[hash].size(); i++) {
+            long long kek = i;
+            MapElement &j = data[hash][i];
+            if (j.key == key) {
+                j.set.put(value, value);
+                return;
+            }
+        }
+        data[hash].push_back(MapElement(key));
+        data[hash][data[hash].size() - 1].set.put(value, value);
     }
 
     void get(const std::string &key) {
         long long hash = get_hash(key);
-        for (std::pair <std::string, Map> &i: data[hash]) {
-            if (i.first == key) {
-                i.second.print();
+        for (auto &j: data[hash]) {
+            if (j.key == key) {
+                j.set.print_all();
                 return;
             }
         }
@@ -177,9 +156,9 @@ public:
 
     void delete_key(const std::string &key, const std::string &value) {
         long long hash = get_hash(key);
-        for (std::pair <std::string, Map> &i: data[hash]) {
-            if (i.first == key) {
-                i.second.delete_key(value);
+        for (auto &j: data[hash]) {
+            if (j.key == key) {
+                j.set.delete_key(value);
                 return;
             }
         }
@@ -187,38 +166,24 @@ public:
 
     void delete_all(const std::string &key) {
         long long hash = get_hash(key);
-        for (std::pair <std::string, Map> &i: data[hash]) {
-            if (i.first == key) {
-                i.second.first = nullptr;
-                i.second.last = nullptr;
+        for (auto &j: data[hash]) {
+            if (j.key == key) {
+                j.set = Map();
                 return;
             }
         }
     }
 
-    void put(const std::string &key, const std::string &value) {
-        long long hash = get_hash(key);
-        for (std::pair <std::string, Map> &i: data[hash]) {
-            if (i.first == key) {
-                i.second.put(value, value);
-                return;
-            }
-        }
-        data[hash].push_back({key, Map()});
-        data[hash][data[hash].size() - 1].second.put(value, value);
-    }
+
 };
 
 int main() {
-    std::vector < std::vector < std::pair < long long, long long>>> test(10);
-
     std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
-    freopen("linkedmap.in", "r", stdin);
-    freopen("linkedmap.out", "w", stdout);
+    std::cin.tie(nullptr);
+    freopen("multimap.in", "r", stdin);
+    freopen("multimap.out", "w", stdout);
     MultiMap dataset;
     std::string input;
-
     while (std::cin >> input) {
         std::string key;
         std::cin >> key;

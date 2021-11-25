@@ -15,11 +15,11 @@ int main() {
     }
 
     for (long long i = 0; i < n; i++){
-        if (2*i + 1 < n and data[i] > data[2*i + 1]){
+        if (2*i + 1 < n && data[i] > data[2*i + 1]){
             std::cout << "NO\n";
             return 0;
         }
-        if (2*i + 2 < n and data[i] > data[2*i + 2]) {
+        if (2*i + 2 < n && data[i] > data[2*i + 2]) {
             std::cout << "NO\n";
             return 0;
         }

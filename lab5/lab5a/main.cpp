@@ -1,80 +1,119 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <time.h>
+#include <set>
+
+class ListElem {
+public:
+    ListElem *prev;
+    ListElem *next;
+    std::string value;
+
+    ListElem(const std::string &value, ListElem *prev) {
+        this->value = value;
+        this->prev = prev;
+        this->next = nullptr;
+    }
+};
 
 class Set {
 private:
-    const long long A = 37;
-    const long long MOD = 1e7 + 19;
-    const long long NONE = 1e11;
-    std::vector<std::vector<long long>> data;
+    int size = 0;
+    const int A = 3;
+    const int MOD = 9834497;
+    std::vector<ListElem *> data;
 
-    [[nodiscard]] long long get_hash(long long key) const {
-        return (key * A) % MOD;
+    int get_hash(const std::string &val) {
+        const int p = 31;
+        int hash = 0, p_pow = 1;
+        for (char i: val) {
+            hash += (i - 'a' + 1) * p_pow;
+            p_pow *= p;
+        }
+        if (hash >= 0) {
+            return hash % MOD;
+        } else {
+            return (MOD - abs(hash) % MOD) % MOD;
+        }
     }
 
 public:
     Set() {
-        data = std::vector<std::vector<long long>>(MOD);
+        data = std::vector<ListElem *>(MOD);
     }
 
-    bool exists(long long key) {
-        long long hash = get_hash(key);
-        for (long long &i: data[hash]) {
-            if (i == key) {
+    void put(const std::string &key) {
+        int hash = get_hash(key);
+        if (data[hash] == nullptr) {
+            data[hash] = new ListElem(key, nullptr);
+            size++;
+            return;
+        }
+        ListElem *cur = data[hash];
+        while (cur->next != nullptr) {
+            if (cur->value == key) {
+                return;
+            }
+            cur = cur->next;
+        }
+        if (cur->value != key) {
+            cur->next = new ListElem(key, cur);
+            size++;
+        }
+    }
+
+    void delete_key(const std::string &key) {
+        int hash = get_hash(key);
+        ListElem *cur = data[hash];
+        if (cur == nullptr) {
+            return;
+        }
+        if (cur->value == key) {
+            data[hash] = cur->next;
+            size--;
+            return;
+        }
+        while (cur != nullptr) {
+            if (cur->value == key) {
+                if (cur->prev != nullptr) {
+                    cur->prev->next = cur->next;
+                }
+                if (cur->next != nullptr) {
+                    cur->next->prev = cur->prev;
+                }
+                size--;
+                return;
+            }
+            cur = cur->next;
+        }
+    }
+
+    bool exists(const std::string &key) {
+        int hash = get_hash(key);
+        ListElem *cur = data[hash];
+        while (cur != nullptr) {
+            if (cur->value == key) {
                 return true;
             }
+            cur = cur->next;
         }
         return false;
     }
-
-    void delete_key(long long key) {
-        long long hash = get_hash(key);
-        for (long long &i: data[hash]) {
-            if (i == key) {
-                i = NONE;
-                return;
-            }
-        }
-    }
-
-    void insert(long long key) {
-        long long hash = get_hash(key);
-        for (long long &i: data[hash]) {
-            if (i == key || i == NONE) {
-                if (i == NONE) {
-                    i = key;
-                }
-                return;
-            }
-        }
-        data[hash].push_back(key);
-    }
 };
 
-
 int main() {
-    std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
+    std::string input;
+    std::string key;
+    Set test;
     freopen("set.in", "r", stdin);
     freopen("set.out", "w", stdout);
-    Set dataset;
-    std::string input;
     while (std::cin >> input) {
-        long long value;
-        std::cin >> value;
+        std::cin >> key;
         if (input == "insert") {
-            dataset.insert(value);
-        } else if (input == "exists") {
-            if (dataset.exists(value)) {
-                std::cout << "true\n";
-            } else {
-                std::cout << "false\n";
-            }
+            test.put(key);
         } else if (input == "delete") {
-            dataset.delete_key(value);
+            test.delete_key(key);
+        } else if (input == "exists") {
+            std::cout << (test.exists(key) ? "true" : "false") << "\n";
         }
     }
-    return 0;
 }

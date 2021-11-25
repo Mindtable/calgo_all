@@ -12,28 +12,24 @@ public:
     ListElement *nxt;
 
     ListElement(std::string label, std::string val, ListElement *previous) {
-        key = std::move(label);
-        value = std::move(val);
+        key = label;
+        value = val;
         prev = previous;
         nxt = nullptr;
-    }
-
-    bool operator==(ListElement &elem) const {
-        return this->key == elem.key && this->value == elem.value &&
-               this->prev == elem.prev && this->nxt == elem.nxt;
     }
 };
 
 class Map {
 private:
-    const long long A = 37;
+    const long long A = 7;
     const long long MOD = 1e7 + 19;
     ListElement NONE = ListElement("", "", nullptr);
     std::vector<std::vector<ListElement>> data;
 
     [[nodiscard]] long long get_hash(const std::string &key) const {
         long long result = 0;
-        for (char i: key) {
+        for (long long j = 0; j < key.length(); j++) {
+            int i = key[j];
             result = (result * A + i) % MOD;
         }
         return result;
@@ -81,29 +77,32 @@ public:
     }
 
     //FIXME
-    void delete_key(std::string key) {
+    ListElement* delete_key(std::string key, ListElement* previous_elem) {
         long long hash = get_hash(key);
-        for (ListElement &i: data[hash]) {
+        for (long long j = 0; j < data[hash].size(); j++) {
+            ListElement &i = data[hash][j];
             if (i.key == key) {
                 if (i.prev != nullptr) {
                     (i.prev)->nxt = i.nxt;
                 }
                 if (i.nxt != nullptr) {
                     (i.nxt)->prev = i.prev;
+                } else {
+                    previous_elem = i.prev;
                 }
                 i = NONE;
-                return;
+                return previous_elem;
             }
         }
+        return previous_elem;
     }
 
     ListElement *put(std::string key, std::string value, ListElement *prev) {
         long long hash = get_hash(key);
         for (ListElement &i: data[hash]) {
-            if (i == NONE) {
-                i = ListElement(key, value, prev);
-                prev->nxt = &i;
-                return &i;
+            if (i.key == key) {
+                i.value = value;
+                return nullptr;
             }
         }
         data[hash].push_back(ListElement(key, value, prev));
@@ -132,11 +131,12 @@ int main() {
         if (input == "put") {
             std::string value;
             std::cin >> value;
-            prev = dataset.put(key, value, prev);
+            ListElement *temp = dataset.put(key, value, prev);
+            prev = temp != nullptr ? temp : prev;
         } else if (input == "get") {
             std::cout << dataset.get(key) << "\n";
         } else if (input == "delete") {
-            dataset.delete_key(key);
+            prev = dataset.delete_key(key, prev);
         } else if (input == "next") {
             std::cout << dataset.next(key) << "\n";
         } else if (input == "prev") {

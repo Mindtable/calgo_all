@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 project(lab5d)
-
+project(test)
+project(final)
 set(CMAKE_CXX_STANDARD 17)
-
+add_executable(test kek.cpp)
 add_executable(lab5d main.cpp)
+add_executable(final bullshit.cpp)

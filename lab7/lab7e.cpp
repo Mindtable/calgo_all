@@ -1,5 +1,5 @@
 #include <iostream>
-
+#define _CRT_SECURE_NO_WARNINGS
 
 class BinarySearchTree {
 private:
@@ -286,5 +286,7 @@ int main() {
             }
         }
     }
+
     return 0;
 }
+

@@ -55,6 +55,7 @@ int main() {
     }
 
     for (ll i = 0; i < program_len; i++) {
+        std::string kek = program[i];
         char first_symbol = program[i][0];
         if (std::isdigit(first_symbol)) {
             queue.push(std::stoll(program[i]));
